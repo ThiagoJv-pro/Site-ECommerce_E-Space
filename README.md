@@ -48,4 +48,4 @@ Overall, this microservice provides an interface to create, read, update, and de
 In short, the microservice takes a filter as a parameter in the URL, makes a request to an external API, filters the results based on the provided filter, and returns the filtered results as a JSON response.
 
 ### Communication with these microservices is intermediated by a gateway that was developed using the Spring Cloud Gateway framework
-<img width="945" alt="image" src="https://user-images.githubusercontent.com/54116959/219514752-1bd7efc1-3e85-418d-b18d-4f7c204f0ef1.png">
+<img width="945" alt="image" src="https://github.com/ThiagoJv-pro/Site-ECommerce_E-Space/blob/master/imgs/E-Space_MS_Architecture.png">

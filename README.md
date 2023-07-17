@@ -1,6 +1,7 @@
 # E-Space ( E-Commerce platform for space equipment sales)
 
 The project is an E-Commerce site developed in Node.js and Express.js, which uses communication between microservices through REST APIs for filtering and data management. Using a gateway as an intermediary for communication with existing microservices in the application.
+
 <img width="945" alt="image" src="https://github.com/ThiagoJv-pro/Site-ECommerce_E-Space/blob/master/imgs/e-space.gif">
 
 
@@ -48,4 +49,5 @@ Overall, this microservice provides an interface to create, read, update, and de
 In short, the microservice takes a filter as a parameter in the URL, makes a request to an external API, filters the results based on the provided filter, and returns the filtered results as a JSON response.
 
 ### Communication with these microservices is intermediated by a gateway that was developed using the Spring Cloud Gateway framework
+
 <img width="945" alt="image" src="https://github.com/ThiagoJv-pro/Site-ECommerce_E-Space/blob/master/imgs/E-Space_MS_Architecture.png">

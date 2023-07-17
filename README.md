@@ -49,4 +49,4 @@ In short, the microservice takes a filter as a parameter in the URL, makes a req
 
 ### Communication with these microservices is intermediated by a gateway that was developed using the Spring Cloud Gateway framework
 
-imgs/E-Space_MS_Architecture.png
+https://github.com/ThiagoJv-pro/Site-ECommerce_E-Space/blob/master/imgs/E-Space_MS_Architecture.png?raw=true

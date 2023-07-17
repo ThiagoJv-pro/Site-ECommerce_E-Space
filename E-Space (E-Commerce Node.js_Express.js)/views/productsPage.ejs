@@ -1,0 +1,272 @@
+<!itemTYPE html>
+    <html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+            <%=title%>
+        </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-black bg-black ">
+            <!-- Container wrapper -->
+
+            <div class="container ">
+                <!-- Navbar brand -->
+                <a class="navbar-brand text-white" href="#">E-Project</a>
+                <div class="row w-100 justify-content-center">
+                    <!-- Toggle button -->
+                    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-bars"></i>
+                    </button>
+
+
+                    <div class="col-12">
+                        <form class="d-flex align-items-center w-100 form-search justify-content-center"
+                            style="margin-top: 20px;">
+                            <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+                            <button type="submit"><i class="fa fa-search"></i></button>
+
+                            <div class="row">
+                                <ul class="navbar-nav ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex" href="#!"><i
+                                                class="fa fa-user fa-lg text-white"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex" href="#!"><i
+                                                class="fa fa-heart fa-lg text-white"></i></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex" href="#!"><i
+                                                class="fa fa-shopping-cart fa-lg text-white"></i></a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="col-12">
+                        <!-- Collapsible wrapper -->
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <!-- Left links -->
+                            <ul class="navbar-nav me-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active d-flex align-items-center text-white" aria-current="page"
+                                        href="#">Menu</a>
+                                </li>
+                            </ul>
+                            <!-- Left links -->
+
+                            <!-- Collapsible wrapper -->
+                            <ul class="navbar-nav ms-3" style="text-align: center;">
+                                <li class="nav-item me-3">
+                                    <a class="nav-link d-flex align-items-center text-white"
+                                        href=<%=locallink %>>Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center me-3 text-white"
+                                        href=<%=locallinkProducts %>>
+                                        Produtos
+                                    </a>
+                                </li>
+
+                                <li class="nav-item" style="width: 65px;">
+                                    <a class="nav-link d-flex align-items-center me-3 text-white" href="#!">Sobre</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Container wrapper -->
+        </nav>
+
+        <section class="bg-white" style="margin-bottom: 10px;">
+
+    
+        <form>
+            <div class="container w-25 h-100 border-end"
+                style=" position: ralative; z-index:2; float:left; margin-top: 50px; margin-left: 30px;">
+                <strong style="margin-top: 50px;">FILTRAR POR: </strong>
+                <div class="form-row align-items-center" style="margin-top: 25px;">
+                
+                    <div class="form-row align-items-center" style="margin-top: 25px;">
+                        <div class="col-auto my-1">
+                            <strong>Tipo: </strong>
+                            <select class="form-select  mb-2" id="inlineFormCustomSelect" name="type">
+                                <option selected> </option>
+                                <option value="Roupa"> Roupa </option>
+                                <option value="Capacete"> Capacete </option>
+                                <option value="Equipamentos"> Acessorios </option>
+                            </select>
+                        </div>
+                        
+                            <button type="submit" class="btn btn-dark"> Filtrar </button>
+                        
+                    </div>
+                </div>
+        </form>
+        </section>
+
+        <section class="bg-white" style="margin-bottom: 10px;">
+            <div class="container">
+                <div class="multi-carousel-inner d-flex border-bottom">
+                    <% let count=0; %>
+                    <% let imgValue;%>
+                        <% let productsDisplayed=[]; %> <!--Variavel para armazenar os ids dos produtos ja exibidos-->
+                            <% doc.forEach((item)=> { %>
+                                <% if (!productsDisplayed.includes(item.id) && count < 4) { %>
+                                    <!--verifica se o id do produto atual nao esta na lista, se nao ele adiciona com a funcao push, se sim ele pula para o proximo item -->
+                                    <a href="/item/<%=item.id%>" style="text-decoration: none;">
+                                        <div class="multi-carousel-item flex-nowrap">
+                                            <div class="card m-2" style="border: none;">
+                                                
+                                                <%if (item.img.img1) {%>
+                                                    <% imgValue = item.img.img1;%>
+                                                <%}else{%>
+                                                    <% imgValue = item.img;%>
+                                                    <%}%>
+                                                <img class="card-img-top img-thumbnail"
+                                                    style="width: 200px; height: 200px; object-fit: contain; border: none;"
+                                                    src="<%= imgValue %>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">
+                                                        <%= item.name %>
+                                                    </h5>
+
+                                                    <p class="price mb-0">
+                                                        <%= item.value %> $
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <% productsDisplayed.push(item.id); %>
+                                        <!--Adicona o id do produto atual na lista, o push add mais elementos ao final do array-->
+                                        <% count++; %>
+                                            <% } %>
+                                                <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white" style="margin-bottom: 10px;">
+            <div class="container">
+                <div class="multi-carousel-inner d-flex border-bottom">
+                    <% let count2=0; %>
+                        <% doc.forEach((item)=> { %>
+                            <% if (!productsDisplayed.includes(item.id) && count2 < 4) { %>
+                                <a href="/item/<%=item.id%>" style="text-decoration: none;">
+                                    <div class="multi-carousel-item flex-nowrap">
+                                        <div class="card m-2" style="border: none;">
+                                            <%if (item.img.img1) {%>
+                                                <% imgValue = item.img.img1;%>
+                                            <%}else{%>
+                                                <% imgValue = item.img;%>
+                                                <%}%>
+                                            <img class="card-img-top img-thumbnail"
+                                                style="width: 200px; height: 200px; object-fit: contain; border: none;"
+                                                src="<%= imgValue %>">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= item.name %>
+                                                </h5>
+
+                                                <p class="price mb-0">
+                                                    <%= item.value %> $
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <% productsDisplayed.push(item.id); %>
+                                    <% count2++; %>
+                                        <% } %>
+                                            <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white" style="margin-bottom: 10px;">
+            <div class="container">
+                <div class="multi-carousel-inner d-flex border-bottom">
+                    <% let count3=0; %>
+                        <% doc.forEach((item)=> { %>
+                            <% if (!productsDisplayed.includes(item.id) && count3 < 4) { %>
+                                <a href="/item/<%=item.id%>" style="text-decoration: none;">
+                                    <div class="multi-carousel-item flex-nowrap">
+                                        <div class="card m-2" style="border: none;">
+                                            <%if (item.img.img1) {%>
+                                                <% imgValue = item.img.img1;%>
+                                            <%}else{%>
+                                                <% imgValue = item.img;%>
+                                                <%}%>
+                                            <img class="card-img-top img-thumbnail"
+                                                style="width: 200px; height: 200px; object-fit: contain; border: none;"
+                                                src="<%= imgValue %>">
+                                            <div class="card-body">
+                                                <h5 class="card-title">
+                                                    <%= item.name %>
+                                                </h5>
+
+                                                <p class="price mb-0">
+                                                    <%= item.value %> $
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <% productsDisplayed.push(item.id); %>
+                                    <% count2++; %>
+                                        <% } %>
+                                            <% }); %>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--Footer-->
+
+        <footer class=" bg-light text-center text-white" style="margin-bottom: 0;">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Linkedin -->
+                    <a target="_blank" class="btn text-white btn-floating m-1" style="background-color: #0082ca;"
+                        href="https://www.linkedin.com/in/thiago-de-jesus-vieira-948ab116a/" role="button"><i
+                            class="fa fa-linkedin"></i></a>
+                    <!-- Github -->
+                    <a target="_blank" class="btn text-white btn-floating m-1" style="background-color: #333333;"
+                        href="https://github.com/ThiagoJv-pro" role="button"><i class="fa fa-github"></i></a>
+                </section>
+                <!-- Section: Social media -->
+            </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                © 2023 Copyright:
+                <a class="text-dark" href="#">COLOCAR LINK DO GITHUB DO PROJETO</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+
+    </body>
+
+    </html>

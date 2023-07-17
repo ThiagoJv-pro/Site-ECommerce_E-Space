@@ -1,0 +1,45 @@
+SPRING_CRUD_MS/e-space-CRUD/src/main/resources/application.properties
+SPRING_CRUD_MS/e-space-CRUD/.gitignore
+SPRING_CRUD_MS/e-space-gateway/.gitignore
+SPRING_CRUD_MS/e-space-gateway/src/main/resources/application.properties
+
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+SPRING_CRUD_MS/.idea
+
+FILTER_FLASK_MS/.idea
+FILTER_FLASK_MS/FilterApi/ll_env
+E-Space (E-Commerce Node.js_Express.js)/.env
